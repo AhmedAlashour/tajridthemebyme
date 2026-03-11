@@ -285,3 +285,7 @@ isElementLoaded(selector){
 }
 
 salla.onReady(() => (new App).loadTheApp());
+
+
+/* Coffee Theme */
+import './coffee-theme';
