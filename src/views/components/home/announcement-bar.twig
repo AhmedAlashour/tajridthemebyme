@@ -1,21 +1,7 @@
-{# ── Announcement Marquee Bar ── #}
-<div class="announcement-bar" role="marquee" aria-label="عروض وتنبيهات">
-  <div class="announcement-track">
-    {% set items = [
-      'SPECIALTY COFFEE',
-      trans('pages.home.free_shipping'),
-      'FRESHLY ROASTED',
-      trans('pages.home.fresh_roasting'),
-      'SINGLE ORIGIN',
-      trans('pages.home.specialty_roastery'),
-      'FREE SHIPPING 200+ SAR',
-      'ARABICA 100%'
-    ] %}
-    {# Duplicate for infinite scroll effect #}
-    {% for i in 0..1 %}
-      {% for item in items %}
-        <span>{{ item }}<span class="announcement-dot"></span></span>
-      {% endfor %}
-    {% endfor %}
+{# ── ANNOUNCEMENT MARQUEE ── #}
+<div class="cof-ann" role="marquee">
+  <div class="cof-ann__track">
+    {% set items = ['SPECIALTY COFFEE', trans('common.titles.free_ship', 'Free shipping 200+ SAR'), 'FRESHLY ROASTED', trans('common.titles.weekly_roast', 'Weekly fresh roasting'), 'FREE SHIPPING 200+ SAR', 'SINGLE ORIGIN', trans('common.titles.specialty_roastery', 'Specialty roastery'), 'ARABICA 100%'] %}
+    {% for i in 0..1 %}{% for item in items %}<span>{{ item }}<span class="cof-ann__dot"></span></span>{% endfor %}{% endfor %}
   </div>
 </div>

@@ -263,6 +263,33 @@
                          "icon":  "sicon-money-bill",
                          "value":  "129",
                          "required":  false
+                     },
+                     {
+                         "id":  "hero_title",
+                         "type":  "string",
+                         "label":  "Hero Title",
+                         "format":  "text",
+                         "icon":  "sicon-format-text-alt",
+                         "value":  "",
+                         "required":  false
+                     },
+                     {
+                         "id":  "hero_title_bold",
+                         "type":  "string",
+                         "label":  "Hero Title Bold",
+                         "format":  "text",
+                         "icon":  "sicon-format-text-alt",
+                         "value":  "",
+                         "required":  false
+                     },
+                     {
+                         "id":  "hero_subtitle",
+                         "type":  "string",
+                         "label":  "Hero Subtitle",
+                         "format":  "text",
+                         "icon":  "sicon-format-text-alt",
+                         "value":  "",
+                         "required":  false
                      }
                  ],
     "components":  [

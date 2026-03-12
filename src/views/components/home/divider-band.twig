@@ -1,11 +1,7 @@
-{# ── Scrolling Divider Band ── #}
-<div class="divider-band" aria-hidden="true">
-  <div class="divider-track">
-    {% set keywords = ['Single Origin', 'Freshly Roasted', 'SCA Certified', 'Direct Trade', 'Specialty Grade', 'Small Batch', 'Weekly Roasting', 'Arabica 100%'] %}
-    {% for i in 0..1 %}
-      {% for word in keywords %}
-        <div class="divider-item">{{ word }}<div class="divider-dot"></div></div>
-      {% endfor %}
-    {% endfor %}
+{# ── DIVIDER BAND ── #}
+<div class="cof-band" aria-hidden="true">
+  <div class="cof-band__track">
+    {% set words = ['Single Origin','Freshly Roasted','SCA Certified','Direct Trade','Specialty Grade','Small Batch','Weekly Roasting','Arabica 100%'] %}
+    {% for i in 0..1 %}{% for w in words %}<div class="cof-band__item">{{ w }}<div class="cof-band__dot"></div></div>{% endfor %}{% endfor %}
   </div>
 </div>

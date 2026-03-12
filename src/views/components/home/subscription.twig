@@ -1,58 +1,27 @@
-{# ── Monthly Subscription CTA ── #}
-<section class="subscription-section" id="subscription">
-  <div class="subscription-inner">
-
-    <div class="subscription-content">
-      <span class="section-label">Monthly Subscription</span>
-      <h2 class="subscription-title">
-        {{ trans('pages.home.subscription_title') }}<br>
-        <strong>{{ trans('pages.home.subscription_title_bold') }}</strong>
-      </h2>
-      <p class="subscription-text">
-        {{ trans('pages.home.subscription_desc') }}
-      </p>
-      <div class="subscription-features">
-        <div class="subscription-feature">
-          <div class="subscription-check">✓</div>
-          {{ trans('pages.home.sub_feature_1') }}
-        </div>
-        <div class="subscription-feature">
-          <div class="subscription-check">✓</div>
-          {{ trans('pages.home.sub_feature_2') }}
-        </div>
-        <div class="subscription-feature">
-          <div class="subscription-check">✓</div>
-          {{ trans('pages.home.sub_feature_3') }}
-        </div>
-        <div class="subscription-feature">
-          <div class="subscription-check">✓</div>
-          {{ trans('pages.home.sub_feature_4') }}
-        </div>
+{# ── SUBSCRIPTION CTA ── #}
+<section class="cof-sub" id="subscription">
+  <div class="cof-sub__inner">
+    <div class="cof-sub__content">
+      <span class="cof-sec__tag">Monthly Subscription</span>
+      <h2 class="cof-sub__title">{{ trans('common.titles.sub_title', 'Coffee') }}<br><strong>{{ trans('common.titles.sub_bold', 'Subscription') }}</strong></h2>
+      <p class="cof-sub__text">{{ trans('common.titles.sub_desc', 'Monthly delivery of specialty coffee to your door. A unique harvest each month.') }}</p>
+      <div class="cof-sub__feats">
+        <div class="cof-sub__feat"><div class="cof-sub__check">&#10003;</div>{{ trans('common.titles.sf1', 'Fresh specialty coffee monthly') }}</div>
+        <div class="cof-sub__feat"><div class="cof-sub__check">&#10003;</div>{{ trans('common.titles.sf2', 'Free shipping everywhere') }}</div>
+        <div class="cof-sub__feat"><div class="cof-sub__check">&#10003;</div>{{ trans('common.titles.sf3', 'Tasting card included') }}</div>
+        <div class="cof-sub__feat"><div class="cof-sub__check">&#10003;</div>{{ trans('common.titles.sf4', '15% off all products') }}</div>
       </div>
-      <a href="{{ link('products') }}" class="btn-primary-dark">
-        {{ trans('pages.home.subscribe_now') }}
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4">
-          <line x1="0" y1="8" x2="14" y2="8"/><polyline points="8,2 14,8 8,14"/>
-        </svg>
+      <a href="{{ link('products') }}" class="cof-btn cof-btn--dark">{{ trans('common.titles.subscribe_now', 'Subscribe Now') }}
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><line x1="0" y1="8" x2="14" y2="8"/><polyline points="8,2 14,8 8,14"/></svg>
       </a>
     </div>
-
-    <div class="subscription-visual">
-      <div class="subscription-box">
-        <div class="subscription-box-label">Monthly Plan</div>
-        <div class="subscription-box-price">
-          {{ theme.settings.subscription_price | default('129') }}
-          <span style="font-size:1rem;font-weight:400;">{{ store.currency | default('ر.س') }}</span>
-        </div>
-        <div class="subscription-box-per">{{ trans('pages.home.monthly') }}</div>
-        <div class="subscription-box-items">
-          250g {{ trans('pages.home.specialty_coffee') }}<br>
-          {{ trans('pages.home.tasting_card') }}<br>
-          {{ trans('pages.home.brew_recipe') }}<br>
-          {{ trans('pages.home.free_shipping') }}
-        </div>
+    <div class="cof-sub__vis">
+      <div class="cof-sub__box">
+        <div class="cof-sub__box-tag">Monthly Plan</div>
+        <div class="cof-sub__box-price">{{ theme.settings.subscription_price | default('129') }} <span>{{ store.currency | default('SAR') }}</span></div>
+        <div class="cof-sub__box-per">{{ trans('common.titles.monthly', 'monthly') }}</div>
+        <div class="cof-sub__box-items">250g Specialty Coffee<br>Tasting Card<br>Brew Recipe<br>Free Shipping</div>
       </div>
     </div>
-
   </div>
 </section>

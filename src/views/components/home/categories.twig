@@ -1,33 +1,19 @@
-{# ══════════════════════════════════════════════════════════════
-   CATEGORIES — Dynamic from your Salla store categories
-   ══════════════════════════════════════════════════════════════ #}
-
-<section class="coffee-section" id="categories">
-  <div class="coffee-section-inner">
-
-    <div class="section-header">
-      <div>
-        <span class="section-label">Categories</span>
-        <h2 class="section-title">{{ trans('pages.home.choose') }} <strong>{{ trans('pages.home.your_category') }}</strong></h2>
-      </div>
-    </div>
-
-    <div class="categories-grid">
-      {% for category in categories %}
-        <a href="{{ category.url }}" class="category-card">
-          {% if category.image.url %}
-            <img src="{{ category.image.url }}" alt="{{ category.name }}" class="category-image" loading="lazy">
-          {% endif %}
-          <div class="category-name">{{ category.name }}</div>
-          <div class="category-count">{{ category.products_count }} {{ trans('pages.home.product') }}</div>
-        </a>
-      {% else %}
-        {# Fallback if no categories exist yet #}
-        <div class="category-card">
-          <div class="category-name">{{ trans('pages.home.no_categories') }}</div>
-        </div>
-      {% endfor %}
-    </div>
-
+{# ── CATEGORIES GRID ── #}
+<section class="cof-sec" id="categories">
+  <div class="cof-sec__head">
+    <div><span class="cof-sec__tag">Categories</span><h2 class="cof-sec__title">{{ trans('common.titles.choose', 'Choose') }} <strong>{{ trans('common.titles.your_category', 'Your Category') }}</strong></h2></div>
+  </div>
+  <div class="cof-cats">
+    {% for category in categories %}
+      <a href="{{ category.url }}" class="cof-cat">
+        <div class="cof-cat__name">{{ category.name }}</div>
+        <div class="cof-cat__count">{{ category.products_count }} {{ trans('common.titles.product', 'product') }}</div>
+      </a>
+    {% else %}
+      <a href="#" class="cof-cat"><div class="cof-cat__name">Specialty Coffee</div><div class="cof-cat__en">12 products</div></a>
+      <a href="#" class="cof-cat"><div class="cof-cat__name">Brewing Tools</div><div class="cof-cat__en">8 products</div></a>
+      <a href="#" class="cof-cat"><div class="cof-cat__name">Merchandise</div><div class="cof-cat__en">6 products</div></a>
+      <a href="#" class="cof-cat"><div class="cof-cat__name">Subscriptions</div><div class="cof-cat__en">3 products</div></a>
+    {% endfor %}
   </div>
 </section>
