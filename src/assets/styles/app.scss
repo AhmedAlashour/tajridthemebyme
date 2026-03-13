@@ -1,99 +1,250 @@
-/*
- * IMPORTANT NOTE: Theme based on Tailwindcss but for the purpose of simplifing the DOM we use
- * tailwind classes with @apply directive in the SCSS files
-*/
+/* ================================================================
+   COFFEE ROASTERY THEME — Main Stylesheet
+   REPLACES the default Theme Raed app.scss
+   ================================================================ */
 
-/**
- * SETTINGS
- * Tailwind.............Import tailwind.
- * Fonts................Any font files.
- * Global...............Project-specific, globally available variables.
- * Breakpoints..........Mixins and variables for responsive styles.
- *
- * GENERIC
- * Common...............All commn styles and assistan classes and common style fixes
- * Reset................Reset specific elements to make them easier to style in other contexts.
- * Animations...........Some of animations from anime.css
- * Lazyload.............Lazyload placeholder styles
- * RTL..................Specific styles for RTL.
- * LTR..................Specific styles for LTR.
- *
- * ELEMENTS
- * Forms................Element-level form styling.
- * Buttons..............Specific styles for buttons.
- * Radio................Specific styles for custom radio button.
- * Radio Images.........Specific styles for radio images, used in product options.
- *
- * COMPONENTS
- * Header...............Specific styles for header styles.
- * Footer...............Specific styles for footer styles.
- * Menu.................Specific styles for main menu and mobile menu styles.
- * User Menu............Specific styles for user menu dropdown.
- * User Pages...........Specific styles for user pages like profile, notifications, orders...
- * Home Blocks..........Specific styles for home blocks.
- * Slider...............Specific styles for sliders.
- * Product..............Specific styles for single product page and it's elements.
- * Brands...............Specific styles for brands page.
- * Placeholder..........Specific styles for no content placeholders.
- * Gifting..............Specific styles for gifting system.
- * Loyalty..............Specific styles for loyalty system.
- *
- * UTILITIES
- * Chat Bots............Specific styles for chats bots widget.
- * Swal.................Specific styles for Sweet Alert addon.
- * Safari Fixes.........Specific styles for Safari Browser.
- *
- * EMBEDED ADDONS
- * Lite Youtube Embed...Specific styles for lite-youtube-embed addon.
- * Swiper...............Specific styles for swiper slider addon.
- * MMenu................Specific styles for mmenu addon.
- *
-*/
+/* ── Tailwind Base ── */
+@import "01-settings/tailwind";
 
-@import './01-settings/tailwind';
-@import './01-settings/fonts';
-@import './01-settings/global';
-@import './01-settings/breakpoints';
+/* ── Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Noto+Sans+Arabic:wght@200;300;400;500;600;700&display=swap');
 
-@import './02-generic/reset';
-@import './02-generic/common';
-@import './02-generic/tooltip';
-@import './02-generic/animations';
-@import './02-generic/lazyload';
-@import './02-generic/rtl';
-@import './02-generic/ltr';
-@import './02-generic/mixins';
+/* ── Keep Raed's base resets & form elements (they handle Salla components) ── */
+@import "02-generic/reset";
+@import "02-generic/common";
+@import "02-generic/animations";
+@import "02-generic/lazyload";
+@import "02-generic/rtl";
+@import "02-generic/ltr";
+@import "03-elements/form";
+@import "03-elements/buttons";
+@import "03-elements/radio";
+@import "03-elements/radio-images";
 
-@import './03-elements/form';
-@import './03-elements/buttons';
-@import './03-elements/radio';
-@import './03-elements/radio-images';
+/* ── Keep essential Raed component styles for inner pages (cart, product, etc.) ── */
+@import "04-components/header";
+@import "04-components/menus";
+@import "04-components/footer";
+@import "04-components/product";
+@import "04-components/slider";
+@import "04-components/filters";
+@import "04-components/brands";
+@import "04-components/user-pages";
+@import "04-components/user-menu";
+@import "04-components/loyalty";
+@import "04-components/gifting";
+@import "04-components/no-content-placeholder";
+@import "04-components/landing-page";
+@import "04-components/add-product-toast";
+@import "04-components/virtooal";
+@import "05-utilities/font-customization";
+@import "05-utilities/safari-fixes";
+@import "05-utilities/swal";
+@import "05-utilities/chat-bots";
 
-@import './04-components/header';
-@import './04-components/footer';
-@import './04-components/menus';
-@import './04-components/user-menu';
-@import './04-components/user-pages';
-@import './04-components/home-blocks';
-@import './04-components/slider';
-@import './04-components/product';
-@import './04-components/brands';
-@import './04-components/no-content-placeholder';
-@import './04-components/gifting';
-@import './04-components/loyalty';
-@import './04-components/virtooal';
-@import './04-components/landing-page';
-@import './04-components/filters';
-@import './04-components/add-product-toast';
+/* ── Raed's home-blocks is what makes it look like Raed — SKIP it ── */
+/* @import "04-components/home-blocks"; ← REMOVED */
 
-@import './05-utilities/chat-bots';
-@import './05-utilities/swal';
-@import './05-utilities/safari-fixes';
-@import './05-utilities/font-customization';
+/* ================================================================
+   COFFEE THEME OVERRIDES
+   Everything below makes this look like a coffee roastery, not Raed
+   ================================================================ */
 
-@import 'lite-youtube-embed/src/lite-yt-embed.css';
-@import 'mmenu-light/dist/mmenu-light.css';
+:root {
+  --cof-bk: #0a0a0a;
+  --cof-wh: #fafafa;
+  --cof-g1: #f5f5f5;
+  --cof-g2: #e8e8e8;
+  --cof-g3: #d3d3d3;
+  --cof-g4: #a0a0a0;
+  --cof-g5: #6b6b6b;
+  --cof-g6: #404040;
+  --cof-en: 'DM Sans', sans-serif;
+  --cof-ar: 'Noto Sans Arabic', sans-serif;
+}
 
+/* Override Salla's default font */
+body {
+  font-family: var(--cof-ar), var(--cof-en), sans-serif !important;
+  background: var(--cof-wh) !important;
+  color: var(--cof-bk) !important;
+  -webkit-font-smoothing: antialiased;
+}
 
-/* Coffee Theme */
-@import './coffee-theme.css';
+/* Override Salla header to be transparent on hero */
+.header--is-sticky {
+  transition: all .4s ease !important;
+}
+
+/* ── Animations ── */
+@keyframes cofFadeUp { from{opacity:0;transform:translateY(26px)} to{opacity:1;transform:translateY(0)} }
+@keyframes cofFadeIn { from{opacity:0} to{opacity:1} }
+@keyframes cofMarquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+@keyframes cofPulse { 0%,100%{opacity:.3;transform:scaleY(1)} 50%{opacity:.7;transform:scaleY(1.3)} }
+@keyframes cofGrain { 0%,100%{transform:translate(0)}10%{transform:translate(-5%,-10%)}50%{transform:translate(12%,9%)}90%{transform:translate(-1%,7%)} }
+
+.cof-anim { opacity:0; animation:cofFadeUp .7s cubic-bezier(.16,1,.3,1) forwards }
+
+/* ── Grain ── */
+.cof-grain{position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px;animation:cofGrain 6s steps(10) infinite}
+
+/* ── Buttons ── */
+.cof-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.88rem 2rem;font-size:.79rem;font-weight:500;cursor:pointer;letter-spacing:.04em;transition:all .3s;font-family:var(--cof-ar),var(--cof-en);text-decoration:none;border:none}
+.cof-btn--white{background:var(--cof-wh);color:var(--cof-bk)}.cof-btn--white:hover{background:var(--cof-g2);transform:translateY(-1px)}
+.cof-btn--outline{background:transparent;color:var(--cof-wh);border:1px solid rgba(255,255,255,.2)}.cof-btn--outline:hover{border-color:rgba(255,255,255,.5)}
+.cof-btn--dark{background:var(--cof-bk);color:var(--cof-wh)}.cof-btn--dark:hover{background:var(--cof-g6);transform:translateY(-1px)}
+
+/* ── Announcement ── */
+.cof-ann{background:var(--cof-bk);color:var(--cof-wh);height:34px;display:flex;align-items:center;overflow:hidden}
+.cof-ann__track{display:flex;gap:3.5rem;animation:cofMarquee 22s linear infinite;white-space:nowrap;font-family:var(--cof-en);font-size:.67rem;letter-spacing:.18em;text-transform:uppercase}
+.cof-ann__track span{flex-shrink:0}
+.cof-ann__dot{width:3px;height:3px;background:var(--cof-g4);border-radius:50%;display:inline-block;vertical-align:middle;margin:0 .4rem}
+
+/* ── HERO ── */
+.cof-hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;background:var(--cof-bk)}
+.cof-hero__video-wrap{position:absolute;inset:0;z-index:0;overflow:hidden}
+.cof-hero__video{width:100%;height:100%;object-fit:cover;opacity:.5;filter:grayscale(25%) contrast(1.05)}
+.cof-hero__fallback{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%,rgba(60,50,40,.5),transparent 60%),var(--cof-bk)}
+.cof-hero__overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(10,10,10,.35),rgba(10,10,10,.12) 40%,rgba(10,10,10,.55))}
+.cof-hero__vignette{position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse at center,transparent 45%,rgba(10,10,10,.45))}
+.cof-hero__inner{position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:8rem 2rem 5rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;width:100%;min-height:100vh}
+.cof-hero__content{max-width:700px}
+.cof-hero__label{display:inline-flex;align-items:center;gap:.6rem;font-size:.64rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.42);font-family:var(--cof-en);margin-bottom:2.5rem}
+.cof-hero__label-line{width:28px;height:1px;background:rgba(255,255,255,.2)}
+.cof-hero__title{font-size:clamp(2.5rem,6.5vw,5rem);font-weight:200;line-height:1.06;color:var(--cof-wh);margin-bottom:1.4rem;letter-spacing:-.02em}
+.cof-hero__title strong{font-weight:700;display:block}
+.cof-hero__sub{font-size:1rem;color:rgba(255,255,255,.48);line-height:1.9;max-width:460px;margin:0 auto 2.5rem;font-weight:300}
+.cof-hero__btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+.cof-hero__stats{display:flex;gap:3.5rem;margin-top:3.5rem;padding-top:2.2rem;border-top:1px solid rgba(255,255,255,.1);justify-content:center}
+.cof-hero__stat-num{font-family:var(--cof-en);font-size:1.7rem;font-weight:600;color:var(--cof-wh);display:block}
+.cof-hero__stat-lbl{font-size:.67rem;color:rgba(255,255,255,.36);margin-top:.2rem;display:block}
+.cof-hero__scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;z-index:2;color:rgba(255,255,255,.25);animation:cofFadeIn 1s ease 1.5s both}
+.cof-hero__scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,rgba(255,255,255,.25),transparent);animation:cofPulse 2s ease-in-out infinite}
+.cof-hero__scroll-txt{font-family:var(--cof-en);font-size:.5rem;letter-spacing:.28em;text-transform:uppercase}
+.cof-hero__mute{position:absolute;bottom:2.5rem;right:2rem;z-index:3;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.45);width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(8px);transition:all .3s}
+.cof-hero__mute:hover{background:rgba(255,255,255,.14);color:rgba(255,255,255,.8)}
+
+/* ── Divider Band ── */
+.cof-band{background:var(--cof-g1);border-top:1px solid var(--cof-g2);border-bottom:1px solid var(--cof-g2);overflow:hidden;padding:1.1rem 0}
+.cof-band__track{display:flex;gap:2.8rem;animation:cofMarquee 28s linear infinite;white-space:nowrap}
+.cof-band__item{font-family:var(--cof-en);font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--cof-g4);flex-shrink:0;display:flex;align-items:center;gap:1.3rem}
+.cof-band__dot{width:4px;height:4px;background:var(--cof-g3);border-radius:50%}
+
+/* ── Sections ── */
+.cof-sec{max-width:1320px;margin:0 auto;padding:5rem 2rem}
+.cof-sec__head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2.6rem;flex-wrap:wrap;gap:1rem}
+.cof-sec__tag{font-size:.61rem;letter-spacing:.26em;text-transform:uppercase;color:var(--cof-g4);margin-bottom:.5rem;font-family:var(--cof-en);display:block}
+.cof-sec__title{font-size:clamp(1.4rem,2.8vw,2rem);font-weight:300;color:var(--cof-bk)}
+.cof-sec__title strong{font-weight:700}
+.cof-sec__link{font-size:.75rem;color:var(--cof-g5);text-decoration:none;display:inline-flex;align-items:center;gap:.4rem;border-bottom:1px solid var(--cof-g3);padding-bottom:2px;transition:all .2s}
+.cof-sec__link:hover{color:var(--cof-bk);border-color:var(--cof-bk)}
+
+/* ── Categories ── */
+.cof-cats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.cof-cat{background:var(--cof-g1);border:1px solid var(--cof-g2);padding:2.2rem 1.3rem;text-align:center;cursor:pointer;transition:all .3s;text-decoration:none;color:var(--cof-bk);display:block}
+.cof-cat:hover{background:var(--cof-bk);color:var(--cof-wh);border-color:var(--cof-bk)}
+.cof-cat:hover .cof-cat__count{color:var(--cof-wh)}
+.cof-cat__name{font-size:.93rem;font-weight:500;margin-bottom:.6rem}
+.cof-cat__count{font-family:var(--cof-en);font-size:.6rem;color:var(--cof-g4);letter-spacing:.1em;transition:color .3s}
+
+/* ── Products ── */
+.cof-prods{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+.cof-prod{cursor:pointer;transition:transform .3s}.cof-prod:hover{transform:translateY(-3px)}
+.cof-prod__img{background:var(--cof-g1);border:1px solid var(--cof-g2);aspect-ratio:3/4;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;margin-bottom:.9rem;transition:border-color .3s;text-decoration:none;color:var(--cof-bk)}
+.cof-prod__img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.cof-prod:hover .cof-prod__img{border-color:var(--cof-bk)}
+.cof-prod:hover .cof-prod__img img{transform:scale(1.03)}
+.cof-prod__placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;padding:1rem;text-align:center}
+.cof-prod__vis-name{font-family:var(--cof-en);font-size:1.4rem;font-weight:200;letter-spacing:.06em;text-transform:uppercase;line-height:1.25}
+.cof-prod__badge{position:absolute;top:.7rem;right:.7rem;background:var(--cof-bk);color:var(--cof-wh);padding:.22rem .55rem;font-size:.56rem;font-weight:500;z-index:2}
+.cof-prod__add{position:absolute;bottom:0;left:0;right:0;background:var(--cof-bk);color:var(--cof-wh);padding:.6rem;text-align:center;font-size:.7rem;font-weight:500;opacity:0;transform:translateY(100%);transition:all .3s;border:none;cursor:pointer;font-family:var(--cof-ar);width:100%;z-index:2}
+.cof-prod:hover .cof-prod__add{opacity:1;transform:translateY(0)}
+.cof-prod__info{padding:0 .15rem}.cof-prod__info a{text-decoration:none;color:inherit}
+.cof-prod__name{font-size:.84rem;font-weight:500;margin-bottom:.35rem}
+.cof-prod__meta{display:flex;align-items:center;justify-content:space-between}
+.cof-prod__prices{display:flex;align-items:baseline;gap:.4rem}
+.cof-prod__price{font-family:var(--cof-en);font-size:.9rem;font-weight:600}
+.cof-prod__cur{font-size:.66rem;font-weight:400;color:var(--cof-g5)}
+.cof-prod__old{font-family:var(--cof-en);font-size:.74rem;color:var(--cof-g4);text-decoration:line-through}
+.cof-prod__rate{display:flex;align-items:center;gap:.2rem;font-family:var(--cof-en);font-size:.68rem;color:var(--cof-bk)}
+
+/* ── Tools ── */
+.cof-tools{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.cof-tool{border:1px solid var(--cof-g2);padding:1.7rem;cursor:pointer;transition:all .3s}
+.cof-tool:hover{border-color:var(--cof-bk);transform:translateY(-2px);box-shadow:0 6px 28px rgba(0,0,0,.05)}
+.cof-tool__ico{width:38px;height:38px;background:var(--cof-g1);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;color:var(--cof-bk)}
+.cof-tool__name{font-size:.93rem;font-weight:500;margin-bottom:.35rem}
+.cof-tool__desc{font-size:.74rem;color:var(--cof-g5);margin-bottom:1rem;line-height:1.6}
+.cof-tool__bot{display:flex;align-items:center;justify-content:space-between}
+.cof-tool__price{font-family:var(--cof-en);font-size:.93rem;font-weight:600}
+.cof-tool__cur{font-weight:400;font-size:.68rem;color:var(--cof-g5)}
+
+/* ── Features ── */
+.cof-feat{background:var(--cof-bk);color:var(--cof-wh)}
+.cof-feat__inner{max-width:1320px;margin:0 auto;padding:4.5rem 2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;text-align:center}
+.cof-feat__item{padding:1.2rem}
+.cof-feat__num{font-family:var(--cof-en);font-size:2.2rem;font-weight:200;margin-bottom:.65rem}
+.cof-feat__title{font-size:.86rem;font-weight:500;margin-bottom:.4rem}
+.cof-feat__desc{font-size:.72rem;color:var(--cof-g4);line-height:1.7;max-width:240px;margin:0 auto}
+
+/* ── Subscription ── */
+.cof-sub{background:var(--cof-g1);border-top:1px solid var(--cof-g2);border-bottom:1px solid var(--cof-g2)}
+.cof-sub__inner{max-width:1320px;margin:0 auto;padding:4.5rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+.cof-sub__title{font-size:clamp(1.3rem,2.8vw,1.8rem);font-weight:300;margin-bottom:.9rem;line-height:1.3}
+.cof-sub__title strong{font-weight:700}
+.cof-sub__text{font-size:.82rem;color:var(--cof-g5);line-height:1.8;margin-bottom:1.7rem;max-width:400px}
+.cof-sub__feats{display:flex;flex-direction:column;gap:.65rem;margin-bottom:1.7rem}
+.cof-sub__feat{display:flex;align-items:center;gap:.65rem;font-size:.79rem;color:var(--cof-g6)}
+.cof-sub__check{width:18px;height:18px;background:var(--cof-bk);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--cof-wh);font-size:.55rem;flex-shrink:0}
+.cof-sub__vis{display:flex;justify-content:center;align-items:center}
+.cof-sub__box{width:310px;height:370px;background:var(--cof-wh);border:1px solid var(--cof-g2);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem}
+.cof-sub__box-tag{font-family:var(--cof-en);font-size:.56rem;letter-spacing:.26em;text-transform:uppercase;color:var(--cof-g4);margin-bottom:1.2rem}
+.cof-sub__box-price{font-family:var(--cof-en);font-size:2.6rem;font-weight:200;color:var(--cof-bk);margin-bottom:.2rem}
+.cof-sub__box-price span{font-size:1rem;font-weight:400}
+.cof-sub__box-per{font-size:.68rem;color:var(--cof-g4);margin-bottom:1.6rem}
+.cof-sub__box-items{font-size:.72rem;color:var(--cof-g5);line-height:2}
+
+/* ── Testimonials ── */
+.cof-tests{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.cof-test{border:1px solid var(--cof-g2);padding:1.7rem}
+.cof-test__stars{display:flex;gap:.12rem;color:var(--cof-bk);margin-bottom:.9rem}
+.cof-test__txt{font-size:.84rem;line-height:1.8;color:var(--cof-g6);margin-bottom:1.2rem;font-weight:300}
+.cof-test__author{font-size:.74rem;font-weight:600}
+
+/* ── Newsletter ── */
+.cof-news{text-align:center}
+.cof-news__inner{max-width:480px;margin:0 auto}
+.cof-news__title{font-size:1.35rem;font-weight:300;margin-bottom:.65rem}
+.cof-news__title strong{font-weight:700}
+.cof-news__text{font-size:.79rem;color:var(--cof-g5);margin-bottom:1.7rem;line-height:1.7}
+.cof-news__form{display:flex;border:1px solid var(--cof-g3);overflow:hidden}
+.cof-news__input{flex:1;border:none;padding:.82rem 1rem;font-size:.79rem;background:var(--cof-wh);font-family:var(--cof-ar),var(--cof-en);direction:rtl;outline:none}
+.cof-news__input::placeholder{color:var(--cof-g4)}
+.cof-news__btn{background:var(--cof-bk);color:var(--cof-wh);border:none;padding:.82rem 1.5rem;font-size:.74rem;font-weight:500;cursor:pointer;font-family:var(--cof-ar);transition:background .2s;white-space:nowrap}
+.cof-news__btn:hover{background:var(--cof-g6)}
+.cof-news__ok{color:var(--cof-g5);font-size:.79rem;margin-top:1rem}
+
+/* ── WhatsApp ── */
+.cof-wa{position:fixed;bottom:88px;left:1.5rem;width:46px;height:46px;background:#25D366;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;border:none;box-shadow:0 3px 14px rgba(37,211,102,.3);transition:transform .2s;z-index:90;text-decoration:none}
+.cof-wa:hover{transform:scale(1.1)}
+
+/* ── RTL ── */
+[dir="rtl"] .cof-sec__link svg,[dir="rtl"] .cof-btn svg{transform:rotate(180deg)}
+
+/* ── Responsive ── */
+@media(max-width:1024px){
+  .cof-cats,.cof-prods{grid-template-columns:repeat(2,1fr)}.cof-tools{grid-template-columns:repeat(2,1fr)}
+  .cof-sub__inner{grid-template-columns:1fr}.cof-sub__vis{display:none}
+}
+@media(max-width:768px){
+  .cof-sec{padding:3.5rem 1rem}
+  .cof-hero__inner{padding:5.5rem 1.3rem 4rem}.cof-hero__title{font-size:2rem}.cof-hero__sub{font-size:.86rem}
+  .cof-hero__stats{gap:1.7rem;flex-wrap:wrap}.cof-hero__stat-num{font-size:1.3rem}
+  .cof-hero__scroll{bottom:5rem}.cof-hero__mute{bottom:5rem;right:1rem}
+  .cof-prods{grid-template-columns:repeat(2,1fr);gap:.9rem}.cof-prod__vis-name{font-size:1rem}
+  .cof-tools{grid-template-columns:1fr}.cof-cats{grid-template-columns:repeat(2,1fr);gap:.7rem}
+  .cof-feat__inner{grid-template-columns:1fr;gap:1.6rem;padding:3rem 1rem}
+  .cof-tests{grid-template-columns:1fr}
+  .cof-news__form{flex-direction:column;border:none}.cof-news__input{border:1px solid var(--cof-g3)}
+  .cof-wa{bottom:96px;left:1rem}
+}
